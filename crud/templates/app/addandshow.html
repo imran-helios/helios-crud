@@ -1,0 +1,61 @@
+{% extends 'app/base.html' %} 
+{% block content %}
+    <div class="main_content">
+        <div class="reg_fm">
+            <h2>Add New User</h2>
+            <form method="POST" novalidate>
+                {% csrf_token %}
+                {% for field in form  %}
+                    <div>
+                        <label>{{field.label}}</label>
+                        <div>{{field}}</div>
+                        <div>{{field.errors}}</div>
+                    </div>
+                {% endfor %}
+                <input class="add_user_btn" type="submit" value="Add User">
+            </form>
+        </div>
+        <div class="">
+            <h2> User Info</h2>
+
+            <div class="table" id="results">
+                <div class='theader'>
+                  <div class='table_header'>Name</div>
+                  <div class='table_header'>Phone</div>
+                  <div class='table_header'>Action</div>
+                </div>
+                {% for st in stu %}
+                <div class='table_row'>
+                  <div class='table_small'>
+                    <div class='table_cell'>Name</div>
+                    <div class='table_cell'>{{st.name}}</div>
+                  </div>
+                  <div class='table_small'>
+                    <div class='table_cell'>Phone</div>
+                    <div class='table_cell'>{{st.phone}}</div>
+                  </div>
+                  <div class='table_small'>
+                    <div class='table_cell'>Action</div>
+                    <div class='action_icons'>
+                        
+                        <div class='table_cell'>
+                            <a href="#" ><i class="fa-regular fa-eye"></i></i></a>
+                        </div>
+                       
+                        <div class='table_cell'>
+                            <a href="#" type="submit"><i class="fa-regular fa-pen-to-square"></i></a>
+                        </div>
+                        <div class='table_cell'>
+                            <form action="#" method="POST">
+                                {%csrf_token%}
+                                    <button class="icon_btn" type="submit"> <a href="#"><i class="fa-regular fa-trash-can"></i> </a></button>
+                            </form>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div> 
+        </div>
+    </div>
+{% endblock content %}

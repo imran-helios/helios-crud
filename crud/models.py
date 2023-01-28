@@ -4,4 +4,4 @@ from django.db import models
 
 class Registration(models.Model):
     name = models.CharField(max_length=70)
-    phone = models.CharField(max_length = 100)
+    phone = models.CharField(max_length = 14)
