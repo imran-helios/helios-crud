@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="login_container">
+    <div class="login_form">
+        <h1 class="login_title">User Login</h1>
+        <form action="" method="POST" novalidate>
+            {%csrf_token%}
+            <div class="form_data">
+            {% for field in form  %}
+                <div>
+                    <label>
+                        {{field.label}} :
+                    </label>
+                
+                    <div class="">
+                        {{field}}
+                    </div>
+                <span>
+                    {{field.errors}}
+                </span> 
+                </div>
+            {% endfor %}
+            </div>
+            <div>
+                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <span class="er">{{error}}</span>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <input class="add_user_btn" type="submit" value="Login">
+        </form>
+    </div>
+</div>
+{% endblock content %}

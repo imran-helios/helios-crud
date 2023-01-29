@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="update_container">
+    <div class="update_user">
+         <h1>Update User</h1>
+         <form method="POST"> 
+         {%csrf_token%}
+             {% for field in form  %}
+            <div>
+                <label>
+                    {{field.label}}
+                </label>
+                {{field}}
+            </div>
+                {% endfor %}
+            <input class="add_user_btn" type="submit" value="Update User">
+          </form>
+    </div>
+</div>
+{% endblock content %}

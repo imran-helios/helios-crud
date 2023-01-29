@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <div class="signup_container">
+        <div class="signup_form">
+        <h1 class="signup_title">Create Account</h1>
+        <form action="" method="POST" novalidate>
+            {%csrf_token%}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <span class="er">{{error}}</span>
+                {% endfor %}
+            {% endif %}
+            <div class="form_data">
+            {% for field in form  %}
+                <div>
+                    <label>
+                        {{field.label}} :
+                    </label>
+                   
+                    <div class="">
+                        {{field}}
+                    </div>
+                   <span>
+                    {{field.errors}}
+                  </span> 
+                </div>
+            {% endfor %}
+            </div>
+            <input class="add_user_btn" type="submit" value="SignUp">
+        </form>
+        {% if messages %}
+            {% for message in messages  %}
+                <small {% if message.tags %}class ="{{message.tags}}" {% endif %}>
+                {{message}}
+                </small>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock content %}
+
