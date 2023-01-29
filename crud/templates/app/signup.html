@@ -27,6 +27,8 @@
             {% endfor %}
             </div>
             <input class="add_user_btn" type="submit" value="SignUp">
+            <span>or</span>
+            <a class="toggle" href='{% url 'login' %}'>LogIn</a>
         </form>
         {% if messages %}
             {% for message in messages  %}
