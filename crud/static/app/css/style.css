@@ -60,14 +60,8 @@ body{
     font-size: 14px;
     display: flex;
     flex-direction: column;
-    /* justify-content: end; */
     align-items: end;
   }
-
-  /* .form_error{
-    display: block;
-  } */
-
   .user_table_top{
     display: flex;
     justify-content: space-between;
@@ -92,7 +86,6 @@ body{
     display: table;
     text-align: center;
     width: 100%;
-    /* margin: 10% auto 0; */
     border-collapse: separate;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -120,12 +113,10 @@ body{
   
   .table_header:first-child {
     border-left: #ccc 1px solid;
-    /* border-top-left-radius: 5px; */
   }
   
   .table_header:last-child {
     border-right: #ccc 1px solid;
-    /* border-top-right-radius: 5px; */
   }
   
   .table_small {
@@ -138,24 +129,15 @@ body{
     background: #44ffef;
     color: #000;
     padding: 10px 0;
-    /* padding-bottom: 10px; */
   }
   .table_row > .table_small > .action_icons > .table_cell {
- 
     padding: 10px 0;
-    /* padding-bottom: 10px; */
   }
   
   .table_row > .table_small > .table_cell {
     padding: 10px 0;
-    /* padding-bottom: 3px; */
     color: #5b5b5b;
   }
-
-  
-  /* .table_row > .table_small:first-child > .table_cell {
-    border-left: #ccc 1px solid;
-  } */
   
   .table_row > .table_small:last-child > .table_cell {
     border-right: #ccc 1px solid;
@@ -164,10 +146,6 @@ body{
   .table_row:last-child > .table_small:last-child > .table_cell:last-child {
     border-bottom-right-radius: 5px;
   }
-  
-  /* .table_row:last-child > .table_small:first-child > .table_cell:last-child {
-    border-bottom-left-radius: 5px;
-  } */
   
   .table_row:nth-child(2n+3) {
     background: #44ffef1b;
@@ -264,12 +242,6 @@ body{
     font-size: 16px;
   }
 
-
-
-
-
-
-
   @media screen and (max-width: 768px) {
     .main_content{
         display: block;
@@ -281,16 +253,11 @@ body{
     .table {
       display: block;
       border: 0px solid #bdbdbd;
-      /* border-right: 1px solid #000; */
     }
     .table_row > .table_small > .table_cell {
        
         border-bottom: 1px solid #bdbdbd;
       }
-      /* .table_row > .table_small > .action_icons > .table_cell {
-       
-        border-bottom: 1px solid #bdbdbd;
-      } */
     .table_row:nth-child(2n+3) {
       background: none;
     }
@@ -345,13 +312,11 @@ body{
     }
     .table_small {
         display: table-row;
-        /* border-bottom: 1px solid #000; */
       }
     .action_icons{
         column-gap: 0px;
         border-bottom: 1px solid #ccc;
         border-right: 1px solid #ccc;
-        /* padding: 10px; */
     }
     .update_user{
         width: 100%;
