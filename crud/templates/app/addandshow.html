@@ -15,9 +15,16 @@
                 <input class="add_user_btn" type="submit" value="Add User">
             </form>
         </div>
-        <div class="">
-            <h2> User Info</h2>
-
+        <div class="user_table">
+            <div class="user_table_top">
+                <h2> User Info</h2>
+                {% if  request.user.is_authenticated %}
+                    <a class="toggle" href='{% url 'logout' %}'>Log Out</a>
+                {% else %}
+                    <a class="toggle" href='{% url 'login' %}'>Log In</a>
+                {% endif %}
+            </div>
+            {% if stu %}
             <div class="table" id="results">
                 <div class='theader'>
                   <div class='table_header'>Name</div>
@@ -39,14 +46,14 @@
                     <div class='action_icons'>
                         
                         <div class='table_cell'>
-                            <a href="#" ><i class="fa-regular fa-eye"></i></i></a>
+                            <a href="{% url 'detailsdata' st.id %}" ><i class="fa-regular fa-eye"></i></i></a>
                         </div>
                        
                         <div class='table_cell'>
-                            <a href="#" type="submit"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href="{% url 'updatedata' st.id %}" type="submit"><i class="fa-regular fa-pen-to-square"></i></a>
                         </div>
                         <div class='table_cell'>
-                            <form action="#" method="POST">
+                            <form action="{% url 'deletedata' st.id %}" method="POST">
                                 {%csrf_token%}
                                     <button class="icon_btn" type="submit"> <a href="#"><i class="fa-regular fa-trash-can"></i> </a></button>
                             </form>
@@ -55,7 +62,12 @@
                   </div>
                 </div>
                 {% endfor %}
-              </div> 
+              </div>
+              {% else %}
+                <div class="no_data">
+                    <h4>No data available</h4> 
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock content %}

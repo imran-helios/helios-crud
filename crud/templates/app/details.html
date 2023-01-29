@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="user_details">
+    <h1 class="d_title">User Details</h1>
+    <div class="user_data">
+        <p>Id: {{user.id}}</p>
+        <p>Name: {{user.name}}</p>
+        <p>Phone: {{user.phone}}</p>
+        <a class="details_btn" href="{% url 'addandshow' %}">back</a>
+    </div>
+    
+ </div>
+{% endblock content %}

@@ -19,5 +19,11 @@ from crud import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.add_show,name="addandshow")
+    path('', views.add_show,name="addandshow"),
+    path('signup/', views.sign_up, name="signup"),
+    path('login/', views.user_login, name="login"),
+    path('logout/', views.user_logout, name="logout"),
+    path('update/<int:id>/', views.update_data, name="updatedata"),
+    path('delete/<int:id>/', views.delete_data, name="deletedata"),
+    path('contact/<int:id>/', views.details_data, name="detailsdata"),
 ]
