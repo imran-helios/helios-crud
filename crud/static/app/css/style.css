@@ -59,8 +59,14 @@ body{
     color: red;
     font-size: 14px;
     display: flex;
-    justify-content: end;
+    flex-direction: column;
+    /* justify-content: end; */
+    align-items: end;
   }
+
+  /* .form_error{
+    display: block;
+  } */
 
   .user_table_top{
     display: flex;

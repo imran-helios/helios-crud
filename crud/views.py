@@ -1,11 +1,10 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect,redirect
 from .forms import StudentRegistration
 from .models import Registration
 from .forms import SignUpForm, LoginForm
-
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -31,7 +30,11 @@ def user_login(request):
             user =  authenticate(username = uname, password = upass)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect('/')
+                
+                if request.GET.get('next'):
+                    return redirect(request.GET.get('next'))
+                    
+                return redirect('/')
     else:
         fm = LoginForm()
     return render(request, 'app/userlogin.html', {'form': fm})
@@ -85,10 +88,10 @@ def delete_data(request, id):
             return HttpResponseRedirect('/')
     else:
         return HttpResponseRedirect('/login/')
+
+
 ## Details Function
+@login_required(login_url='/login')
 def details_data(request, id):
-    if request.user.is_authenticated:
-        pi = Registration.objects.get(pk = id)
-        return render(request, 'app/details.html', {'user': pi})
-    else:
-        return HttpResponseRedirect('/login/')
+    pi = Registration.objects.get(pk = id)
+    return render(request, 'app/details.html', {'user': pi})
