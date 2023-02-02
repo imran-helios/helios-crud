@@ -32,7 +32,7 @@ class LoginForm(AuthenticationForm):
 class StudentRegistration(forms.ModelForm):
     class Meta:
         model = Registration
-        fields = ['name', 'phone']
+        fields = ['name', 'phone', 'photo']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'name_field', 'placeholder': 'Enter Your Name'}),
             'phone': forms.TextInput(attrs={'class': 'phone_field', 'placeholder': 'Enter Your Phone NUmber'})

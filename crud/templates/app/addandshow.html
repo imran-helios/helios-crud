@@ -3,7 +3,7 @@
     <div class="main_content">
         <div class="reg_fm">
             <h2>Add New User</h2>
-            <form method="POST" novalidate>
+            <form method="POST" novalidate enctype ="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form  %}
                     <div>
@@ -27,12 +27,17 @@
             {% if stu %}
             <div class="table" id="results">
                 <div class='theader'>
+                  <div class='table_header'>Image</div>
                   <div class='table_header'>Name</div>
                   <div class='table_header'>Phone</div>
                   <div class='table_header'>Action</div>
                 </div>
                 {% for st in stu %}
                 <div class='table_row'>
+                  <div class='table_small'>
+                    <div class='table_cell'>Image</div>
+                    <div class='table_cell'><img class="user_img" src="{{st.photo.url}}" / alt="user_image"></div>
+                  </div>
                   <div class='table_small'>
                     <div class='table_cell'>Name</div>
                     <div class='table_cell'>{{st.name}}</div>

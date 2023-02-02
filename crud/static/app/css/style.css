@@ -71,7 +71,6 @@ body{
     color: #4495ff;
     font-weight: bold;
   }
-
   .fa-trash-can{
     color: red;
   }
@@ -80,6 +79,12 @@ body{
   }
   .fa-eye{
     color: #4495ff;
+  }
+
+  .user_img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
   }
 
   .table {

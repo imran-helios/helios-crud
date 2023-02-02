@@ -3,7 +3,7 @@
 <div class="update_container">
     <div class="update_user">
          <h1>Update User</h1>
-         <form method="POST"> 
+         <form method="POST" enctype ="multipart/form-data"> 
          {%csrf_token%}
              {% for field in form  %}
             <div>
