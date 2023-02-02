@@ -49,11 +49,12 @@ def user_logout(request):
 ## Create and Show Function
 def add_show(request):
     if request.method == "POST":
-        fm = StudentRegistration(request.POST)
+        fm = StudentRegistration(request.POST, request.FILES)
         if fm.is_valid():
             name = fm.cleaned_data['name']
             phone = fm.cleaned_data['phone']
-            reg = Registration(name = name, phone = phone)
+            photo = fm.cleaned_data['photo']
+            reg = Registration(name = name, phone = phone, photo = photo)
             if request.user.is_authenticated:
                 reg.save()
             else:
@@ -69,7 +70,9 @@ def update_data(request, id):
     if request.user.is_authenticated:
         if request.method == "POST":
             pi = Registration.objects.get(pk = id)
-            fm = StudentRegistration(request.POST, instance = pi)
+            fm = StudentRegistration(request.POST, request.FILES, instance = pi)
+            image_path = pi.photo.path
+            
             if fm.is_valid():
                 fm.save()
                 return HttpResponseRedirect('/')
